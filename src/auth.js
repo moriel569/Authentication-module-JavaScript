@@ -17,8 +17,9 @@ export function getAuthForm(params) {
 
 
 export function authWithEmailAndPassword(email, password) {
+    const KEY = process.env.API_KEY
 
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.API_KEY}`, {
+    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${KEY}`, {
 
         method: 'POST',
         body: JSON.stringify({
@@ -32,5 +33,6 @@ export function authWithEmailAndPassword(email, password) {
     })
         .then(response => response.json())
         .then(data => data.idToken)
+        .catch(e => console.log(e))
 
 }

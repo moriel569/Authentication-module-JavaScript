@@ -67,6 +67,6 @@ function renderModalAfterAuth(content) {
     if (typeof content === 'string') {
         createModal('Error', content)
     } else {
-        createModal('Questioon List', Question.listToHTML(content))
+        createModal('Question List', Question.listToHTML(content))
     }
 }
